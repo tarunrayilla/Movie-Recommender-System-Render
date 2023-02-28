@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style/signup2.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p>Sign Up</p>
+        </div>
+        <div class="details">
+            <form action="signup" method="post" id="myForm">
+                {% csrf_token %}
+
+                <input type="text" name="first_name" class="input-field" placeholder="Firstname" required>
+                <input type="text" name="last_name" class="input-field" placeholder="Lastname" required>
+                <input type="text" name="username" class="input-field" placeholder="Username" required>
+                <input type="email" name="email" class="input-field" placeholder="Email" required>
+                <input type="password" name="password1" class="input-field" placeholder="Password" required>
+                <input type="password" name="password2" class="input-field" placeholder="Confirm Password" required>
+                <button type="submit" class="submit-btn">Sign Up</button>
+
+                <div id="message">
+                    {% for message in messages %}
+                    <h3> {{message}}  </h3>
+                    {% endfor %}
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

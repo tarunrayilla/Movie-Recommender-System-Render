@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        *{
+            font-family: 'Nunito', sans-serif;
+        }
+
+       body {
+           background-color: black;
+       }
+
+       #container {
+           height: 100vh;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+       }
+
+        #box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 670px;
+            width: 550px;
+            background-color: rgb(221, 219, 219);
+        }
+
+        #myForm{
+            width: 100%;
+            height: 100%;
+        }
+
+        #form-box{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        h1{
+            font-size: 45px;
+        }
+
+        #heading{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            width: 70%;
+            height: 20%;
+            margin: 20px;
+        }
+
+        img{
+            width: 34px;
+            border-radius: 20%;
+            margin: 0 5px;
+        }
+
+        #details{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 70%;
+            height: 70%;
+            margin: 20px;
+            padding: 20px;
+        }
+        .input-field{
+            height: 30px;
+            width: 100%;
+            border-left: 0;
+            border-top: 0;
+            border-right: 0;
+            border-bottom: 1px solid#999;
+            outline: none;
+            background: transparent;
+            margin-top: 20px;
+        }
+        .submit-btn{
+            width: 40%;
+            padding: 10px 30px;
+            cursor: pointer;
+            display: block;
+            margin: 40px auto;
+            border-radius: 30px;
+            background: linear-gradient(to right,#ff105f,#ffad06);
+            border: 0;
+            outline: none;
+            border-radius: 30px;
+            font-size: 20px;
+        }
+        
+        #message{
+            text-align: center;
+            color: red;
+            margin-top: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="box">
+            <div id="form-box">
+                <div id="heading">
+                    <h1>Sign Up</h1>
+                    <div id="icons">
+                        <img src="https://images.theconversation.com/files/93616/original/image-20150902-6700-t2axrz.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1000&fit=clip">
+                        <img src="https://www.freepnglogos.com/uploads/facebook-logo-icon/facebook-logo-icon-file-facebook-icon-svg-wikimedia-commons-4.png">
+                        <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png">
+                    </div>
+                </div>
+                <div id="details">
+                    <form action="signup" method="post" id="myForm">
+                        {% csrf_token %}
+
+                        <input type="text" name="first_name" class="input-field" placeholder="Firstname" required>
+                        <input type="text" name="last_name" class="input-field" placeholder="Lastname" required>
+                        <input type="text" name="username" class="input-field" placeholder="Username" required>
+                        <input type="email" name="email" class="input-field" placeholder="Email" required>
+                        <input type="password" name="password1" class="input-field" placeholder="Password" required>
+                        <input type="password" name="password2" class="input-field" placeholder="Confirm Password" required>
+                        <button type="submit" class="submit-btn">Sign Up</button>
+
+                        <div id="message">
+                            {% for message in messages %}
+                            <h3> {{message}}  </h3>
+                            {% endfor %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.container {
+    margin: 50px 350px;
+}
+
+.container .header p{
+    text-align: center;
+    font-size: 50px;
+    margin: 40px;
+    color: white;
+}
+
+::placeholder {
+    color: white;
+    font-size: 15px;
+}
+
+form {
+    display: grid;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    margin: 10px 0px;
+    padding: 20px;
+    background-color: rgb(99, 97, 97);
+    border: 0;
+    border-radius: 2px;
+    color: white;
+    font-size: 20px;
+}
+
+.submit-btn {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+    font-size: 25px;
+    /* height: 50px; */
+    margin: 50px auto 20px;
+    padding: 15px;
+}
+
+.container .details form p{
+    color: white;
+    text-align: center;
+}
+
+.container .details form a {
+    color: aqua;
+    text-decoration: none;
+}
+
+#message{
+    text-align: center;
+    color: red;
+    margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 15px;
+    }
+}

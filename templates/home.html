@@ -1,0 +1,50 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% static "pics" as baseURL %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommender System</title>
+    <link rel="stylesheet" href="{% static 'style/home.css' %}">
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <div class="movie-list">
+            {% for movie in recommendations %}
+            <div class="movie-item">
+                <!-- {% if movie.poster is not None %}
+                    <img src="{{movie.poster}}">
+                {% else %}
+                    <img src="{% static 'pics/default_poster.jpg' %}">
+                {% endif %}     -->
+                <img src="{{movie.poster}}">
+                <div class="movie-item-details">
+                    <div class="movie-title">
+                        <p>{{movie.title}}</p>
+                    </div>
+                    <!-- <button class="rate-btn" onclick="window.location.href='rating';">Rate</button> -->
+                    <a href="{% url 'rating' movie.movieId %}">
+                        <button class="rate-btn">Rate</button>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="restriction-container">
+            <img src="{% static 'pics/restriction.jpg' %}" alt="image">
+            <div class="restriction-details">
+                <img src="{% static 'pics/lock.png' %}" alt="image">
+                <p>Please login to access the content</p>
+            </div>
+        </div>
+    {% endif %}        
+</body>
+</html>
+
+{% endblock content %}

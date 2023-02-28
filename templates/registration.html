@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommender System</title>
+    <link rel="stylesheet" href="{% static 'style/registration.css' %}">
+</head>
+<body>
+    <div>
+        <h1 class="heading">Registration</h1>
+        <form method="post" action="{% url 'registration' %}" id="regForm">
+            {% csrf_token %}
+            <p>Age: * <input type="number" name="age" min="1" max="90" required></p>
+            <fieldset>
+                <legend>Gender</legend>
+                <p> 
+                    <input type="radio" value="Male" name="gender"> Male 
+                    <input type="radio" value="Female" name="gender"> Female  
+                </p>
+            </fieldset>
+            <p>Genres:</p>
+            <input type="checkbox" value="0" name="genres">Animation <br>
+            <input type="checkbox" value="1" name="genres">Comedy <br>
+            <input type="checkbox" value="2" name="genres">Crime <br>
+            <input type="checkbox" value="3" name="genres">Drama <br>
+            <input type="checkbox" value="4" name="genres">Musical <br>
+            <input type="checkbox" value="5" name="genres">Mystery <br>
+            <input type="checkbox" value="6" name="genres">Romance <br>
+            <input type="checkbox" value="7" name="genres">Sci-Fi <br>
+            <input type="checkbox" value="8" name="genres">Thriller <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

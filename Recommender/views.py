@@ -9,6 +9,7 @@ import sklearn
 import requests
 from django.contrib.auth.models import User
 from sklearn import tree
+from sklearn.ensemble import GradientBoostingClassifier
 from Recommender.models import MovieItem
 from .models import Movie, Rating, newUser, Watched
 from accounts.models import RegForm
@@ -45,9 +46,12 @@ def trainModel2(new_user_array, new_user):
     x = data_cold[:, :-1]
     y = data_cold[:, -1]
 
-    model2 = tree.DecisionTreeClassifier()
-    model2 = model2.fit(x, y)
+    # model2 = tree.DecisionTreeClassifier()
+    # model2 = model2.fit(x, y)
+    model2 = GradientBoostingClassifier()
+    model2.fit(x, y)
     dump(model2, './mlModels/model2.joblib')
+    print('trained model 2')
 
 def recommend(uid):
     movies_unwatched = []

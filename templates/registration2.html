@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommender System</title>
+    <link rel="stylesheet" href="{% static 'style/registration2.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p>Registration</p>
+        </div>
+        <div class="details">
+            <form method="post" id="regForm" onsubmit="return handleData()">
+                {% csrf_token %}
+                <p class="title">Age</p>
+                <input type="number" name="age" min="1" max="90" placeholder="Age" required>
+                
+                <p class="title">Gender</p> 
+                <div class="circles">
+                    <div class="circle"><input type="radio" id="male" class="gender" value="Male" name="gender" required><label for="male">Male</label></div>
+                    <div class="circle"><input type="radio" id="female" class="gender" value="Female" name="gender"><label for="female">Female</label></div>
+                </div>
+ 
+                <p class="title">Genres</p>
+                <div style="visibility:hidden; color:red; " id="check_option_error">
+                    Please select at least one option.
+                </div>
+                <div class="boxes">
+                    <div class="box"><input type="checkbox" id="g1" class="genres" value="0" name="genres"><label for="g1">Animation</label></div>
+                    <div class="box"><input type="checkbox" id="g2" class="genres" value="1" name="genres"><label for="g2">Comedy</label></div>
+                    <div class="box"><input type="checkbox" id="g3" class="genres" value="2" name="genres"><label for="g3">Crime</label></div>
+                    <div class="box"><input type="checkbox" id="g4" class="genres" value="3" name="genres"><label for="g4">Drama</label></div>
+                    <div class="box"><input type="checkbox" id="g5" class="genres" value="4" name="genres"><label for="g5">Musical</label></div>
+                    <div class="box"><input type="checkbox" id="g6" class="genres" value="5" name="genres"><label for="g6">Mystery</label></div>
+                    <div class="box"><input type="checkbox" id="g7" class="genres" value="6" name="genres"><label for="g7">Romance</label></div>
+                    <div class="box"><input type="checkbox" id="g8" class="genres" value="7" name="genres"><label for="g8">Sci-Fi</label></div>
+                    <div class="box"><input type="checkbox" id="g9" class="genres" value="8" name="genres"><label for="g9">Thriller</label></div>
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

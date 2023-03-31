@@ -51,7 +51,11 @@ body {
 
 .navbar-links li a:hover{
     color: aqua;
-}    
+}  
+
+.navbar-links li #uname:hover {
+    color: white;
+}
 
 .toggle-button {
     position: absolute;

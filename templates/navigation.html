@@ -11,7 +11,7 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="project-title">NETFLIX</div>
+        <div class="project-title">CINEMATE</div>
         <a href="#" class="toggle-button">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -20,7 +20,7 @@
         <div class="navbar-links">
             <ul>
                 {% if user.is_authenticated %}
-                    <li><a href="#">{{ user.username }}</a></li>
+                    <li><a href="#" id="uname">{{ user.username }}</a></li>
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'watched' %}">Watched</a></li>
                     <li><a href="{% url 'logout' %}">Logout</a></li>

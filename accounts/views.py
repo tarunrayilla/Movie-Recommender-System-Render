@@ -10,6 +10,7 @@ import numpy as np
 import sklearn
 import pandas as pd
 from sklearn import tree
+from sklearn.ensemble import GradientBoostingClassifier
 import requests
 from django.contrib.auth.models import User
 from Recommender.models import newUser, Watched
@@ -101,10 +102,12 @@ def trainModel2(new_user_array, new_user):
     print(x)
     print(y)
 
-    model2 = tree.DecisionTreeClassifier()
+    model2 = GradientBoostingClassifier()
     model2 = model2.fit(x, y)
     dump(model2, './mlModels/model2.joblib')
     pickle.dump(df_cold, open('./datafiles/df_cold.pkl', 'wb'))
+
+    print('Trained Model 2')
 
 
 def getAllColdStartMovies(x_test, new_user):
@@ -235,4 +238,4 @@ def registration(request):
         return redirect('/')
  
     else:    
-        return render(request, 'registration.html')    
+        return render(request, 'registration2.html')    
